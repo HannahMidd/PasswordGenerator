@@ -90,7 +90,7 @@ var lowerCaseLetters = [
 //Numbers to be used in PW Generator
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-function passwordRequirements() {
+function getPasswordRequirements() {
   var length = parseInt(
     prompt(
       "How many characters (between 8-128) would you like your password to have?"
@@ -153,11 +153,51 @@ function passwordRequirements() {
 
     return passwordRequirements;
   }
-    
-    
 
+  // End password reruirement section
+  
+  // Begin randomizing an element
+  function getRandom(arr) {
+  var randomCharacter = Math.floor(Math.random() * arr.length);
+  var randomElement = arr[randomCharacter];
 
+  return randomElement;
+}
+// End randomizer 
 
+// Begin function for generating password based on user requirements
+
+function generatePassword() {
+  var requirements = getPasswordRequirments();
+  var password = [];
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
+
+  // I dont understand this part, had to look at answer
+  if (!requirements) return null;
+
+// Below will add arrays of possible characters for given variable (lowercase, uppercase, number, special character)
+
+ if (requirements.hasSpecialCharacters) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+    guaranteedCharacters.push(getRandom(specialCharacters));
+  }
+
+  if (requirements.hasNumbers) {
+    possibleCharacters = possibleCharacters.concat(numbers);
+    guaranteedCharacters.push(getRandom(numbers));
+  }
+
+  if (requirements.hasLowerCaseLetters) {
+    possibleCharacters = possibleCharacters.concat(lowerCaseLetters);
+    guaranteedCharacters.push(getRandom(lowerCaseLetters));
+  }
+
+ 
+  if (requirements.hasUpperCaseLetters) {
+    possibleCharacters = possibleCharacters.concat(upperCaseLetters);
+    guaranteedCharacters.push(getRandom(upperCaseLetters));
+  }
 
 
 
