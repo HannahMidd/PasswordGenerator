@@ -97,13 +97,13 @@ function getPasswordRequirements() {
     ),
     10
   );
-  
+
   // Controlling the length of the password (must be between 8-128 characters)
   if (length < 8) {
     alert("Please enter a number between 8-128");
     return null;
   }
-  
+
   if (length > 128) {
     alert("Please enter a number between 8-128");
     return null;
@@ -147,7 +147,7 @@ function getPasswordRequirements() {
       length: length,
       hasSpecialCharacters: hasSpecialCharacters,
       hasNumbers: hasNumbers,
-      hasLowerCaseLetters: hasLowerCaseLetters
+      hasLowerCaseLetters: hasLowerCaseLetters,
       hasUpperCaseLetters: hasUpperCaseLetters,
     };
 
@@ -155,126 +155,76 @@ function getPasswordRequirements() {
   }
 
   // End password reruirement section
-  
+
   // Begin randomizing an element
   function getRandom(arr) {
-  var randomCharacter = Math.floor(Math.random() * arr.length);
-  var randomElement = arr[randomCharacter];
+    var randomCharacter = Math.floor(Math.random() * arr.length);
+    var randomElement = arr[randomCharacter];
 
-  return randomElement;
-}
-// End randomizer 
+    return randomElement;
+  }
+  // End randomizer
 
-// Begin function for generating password based on user requirements
+  // Begin function for generating password based on user requirements
 
-function generatePassword() {
-  var requirements = getPasswordRequirments();
-  var password = [];
-  var possibleCharacters = [];
-  var guaranteedCharacters = [];
+  function generatePassword() {
+    var requirements = getPasswordRequirments();
+    var password = [];
+    var possibleCharacters = [];
+    var guaranteedCharacters = [];
 
-  // I dont understand this part, had to look at answer
-  if (!requirements) return null;
+    // I dont understand this part, had to look at answer
+    if (!requirements) return null;
 
-// Below will add arrays of possible characters for given variable (lowercase, uppercase, number, special character)
+    // Below will add arrays of possible characters for given variable (lowercase, uppercase, number, special character)
 
- if (requirements.hasSpecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacters);
-    guaranteedCharacters.push(getRandom(specialCharacters));
+    if (requirements.hasSpecialCharacters) {
+      possibleCharacters = possibleCharacters.concat(specialCharacters);
+      guaranteedCharacters.push(getRandom(specialCharacters));
+    }
+
+    if (requirements.hasNumbers) {
+      possibleCharacters = possibleCharacters.concat(numbers);
+      guaranteedCharacters.push(getRandom(numbers));
+    }
+
+    if (requirements.hasLowerCaseLetters) {
+      possibleCharacters = possibleCharacters.concat(lowerCaseLetters);
+      guaranteedCharacters.push(getRandom(lowerCaseLetters));
+    }
+
+    if (requirements.hasUpperCaseLetters) {
+      possibleCharacters = possibleCharacters.concat(upperCaseLetters);
+      guaranteedCharacters.push(getRandom(upperCaseLetters));
+    }
+
+    // For loop to continue running until the password lenth requirment is met
+    for (var i = 0; i < requirements.length; i++) {
+      var possibleCharacter = getRandom(possibleCharacters);
+
+      result.push(possibleCharacter);
+    }
+
+    // Add a guarenteed character
+    for (var i = 0; i < guaranteedCharacters.length; i++) {
+      result[i] = guaranteedCharacters[i];
+    }
+
+    // Change the result to a string and pass into writePassword
+    return password.join("");
   }
 
-  if (requirements.hasNumbers) {
-    possibleCharacters = possibleCharacters.concat(numbers);
-    guaranteedCharacters.push(getRandom(numbers));
+  // Get references to the #generate element
+  var generateBtn = document.querySelector("#generate");
+
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
   }
 
-  if (requirements.hasLowerCaseLetters) {
-    possibleCharacters = possibleCharacters.concat(lowerCaseLetters);
-    guaranteedCharacters.push(getRandom(lowerCaseLetters));
-  }
-
- 
-  if (requirements.hasUpperCaseLetters) {
-    possibleCharacters = possibleCharacters.concat(upperCaseLetters);
-    guaranteedCharacters.push(getRandom(upperCaseLetters));
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
 }
