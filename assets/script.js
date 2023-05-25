@@ -97,6 +97,7 @@ function getPasswordRequirements() {
     ),
     10
   );
+  console.log("User entered:", length);
 
   // Controlling the length of the password (must be between 8-128 characters)
   if (length < 8) {
@@ -153,7 +154,7 @@ function getPasswordRequirements() {
 
     return passwordRequirements;
   }
-
+}
   // End password reruirement section
 
   // Begin randomizing an element
@@ -168,7 +169,7 @@ function getPasswordRequirements() {
   // Begin function for generating password based on user requirements
 
   function generatePassword() {
-    var requirements = getPasswordRequirments();
+    var requirements = getPasswordRequirements();
     var password = [];
     var possibleCharacters = [];
     var guaranteedCharacters = [];
