@@ -90,6 +90,133 @@ var lowerCaseLetters = [
 //Numbers to be used in PW Generator
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+function passwordRequirements() {
+  var length = parseInt(
+    prompt("How many characters does your password need to have? (Between 8-128)"),10
+  );
+  
+  // Controlling the length of the password (must be between 8-128 characters)
+  if (length < 8) {
+    alert("Please enter a number between 8-128");
+    return null;
+  }
+  
+  if (length > 128) {
+    alert("Please enter a number between 8-128");
+    return null;
+
+      // If user does not enter a numerical value, this error message will occur. 
+  if (Number.isNaN(length)) {
+    alert('Password length must be provided as a number');
+    return null;
+  }
+    
+  }
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
