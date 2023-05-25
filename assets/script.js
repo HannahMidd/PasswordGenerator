@@ -110,7 +110,30 @@ function passwordRequirements() {
     alert('Password length must be provided as a number');
     return null;
   }
-    
+   
+  // Variables that will be used for user requirements for: special characters, numbers, uppercase and lowercase letters. 
+
+    var hasSpecialCharacters = confirm(
+    'Click OK to confirm including special characters.'
+  );
+
+  var hasNumbers = confirm(
+    'Click OK to confirm including numbers.'
+  );
+
+  
+  var hasLowerCaseLetters = confirm(
+    'Click OK to confirm including lowercase letters.'
+  );
+
+  var hasUpperCaseLetters = confirm(
+    'Click OK to confirm including uppercase letters.'
+  );
+
+
+
+
+
   }
     
     
