@@ -130,44 +130,23 @@ function passwordRequirements() {
     'Click OK to confirm including uppercase letters.'
   );
 
+// Confirming that user has to use at least one of the special characters, numbers, lower/uppercase letters. (Must come after var)
 
+ if (
+   hasSpecialCharacters === false &&
+   hasNumericCharacters === false &&
+   hasLowerCasedCharacters === false &&
+   hasUpperCasedCharacters === false
+ ) {
+   alert("Please select at least one character type");
+   return null;
+ }
 
 
 
   }
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -250,3 +229,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+}
