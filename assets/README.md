@@ -2,6 +2,8 @@
 
 ## Description
 
+The password generator can be accessed at the following URL: https://hannahmidd.github.io/PasswordGenerator/
+
 This password generator will allow a user to input the desired number of characters for their password and will generate a password based on user requirements for: length, numbers, special characters, uppercase letters and lowercase letters. Follow the usage instructions below for more details. 
 
 ![PasswordGeneratorScreenshot](PasswordGeneratorScreenshot.png)
