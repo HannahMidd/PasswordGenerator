@@ -1,9 +1,10 @@
-# Hannah's Coding Study Guide 
+# Password Generator
 
 ## Description
 
-This password generator will allow a user to input the desired number of characters for their password and will generate a password based on user requirements for: length, special characters, 
+This password generator will allow a user to input the desired number of characters for their password and will generate a password based on user requirements for: length, numbers, special characters, uppercase letters and lowercase letters. Follow the usage instructions below for more details. 
 
+![PasswordGeneratorScreenshot](PasswordGeneratorScreenshot.png)
 
 
 ## Installation
@@ -12,9 +13,11 @@ N/A
 
 ## Usage
 
-Notes for beginners for the following topics: HTML, CSS, Git and JavaScript.
+When arriving to the password generator page, click "generate password" to be prompted to the first pop up. Input your desired number of characters for your password (must be between 8-126 characters). 
 
-To use this Prework Study Guide, you can review the notes in each section. For suggestions on what to study first, open the Chrome DevTools by pressing Command+Option+I (macOS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser. There you will see a list of topics we learned from the prework along with a suggestion on which topic to study first.
+Follow the prompts to confirm (Okay) or deny (Cancel) numbers, special characters, uppercase letters and lowercase letters for your password.
+
+Once you have answered all prompts, your generated password will appear in the box.
 
 
 ## Credits
